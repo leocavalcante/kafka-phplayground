@@ -57,3 +57,21 @@ Then just type some messages to the stdin. Press `Ctrl+C` to stop.
 Just checkout [`producer.php`](producer.php).
 
 ![Screenshot 02](assets/screenshot-02.png)
+
+## Let's Rock
+
+### Easy
+
+![Screenshot 03](assets/screenshot-03.png)
+
+![Screenshot 04](assets/screenshot-04.png)
+
+### Medium
+
+![Screenshot 05](assets/screenshot-05.gif)
+
+### Hard
+
+![Screenshot 06](assets/screenshot-06.gif)
+
+> ⚠ Actually, I'm not sure if this is rocking. If you have a proper way to benchmark a consumer, please [issue me](https://github.com/leocavalcante/kafka-phplayground/issues).

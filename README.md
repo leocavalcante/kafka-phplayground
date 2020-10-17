@@ -1,6 +1,6 @@
 # Kafka PHPlayground
 
-⚽ Just some fun with Kafka, PHP and Swoole
+🎸 Just some fun with [Kafka](https://kafka.apache.org/), [PHP](https://www.php.net/) and [Swoole](https://www.swoole.co.uk/).
 
 ## Requirements
 
@@ -48,6 +48,6 @@ Mainly https://github.com/easy-swoole/kafka
 
 - `kafka/bin/kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092`
 
-Then just type some messages to the stdin. Press `Ctrl+C` top stop.
+Then just type some messages to the stdin. Press `Ctrl+C` to stop.
 
 ![Screenshot 01](assets/screenshot-01.png)

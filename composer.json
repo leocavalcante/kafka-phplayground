@@ -1,0 +1,21 @@
+{
+    "name": "leocavalcante/kafka-phplayground",
+    "description": "Just some fun with Kafka, PHP and Swoole",
+    "type": "project",
+    "require": {
+        "php": "^7.4",
+        "ext-swoole": "^4.5",
+        "easyswoole/kafka": "^1.0"
+    },
+    "require-dev": {
+        "swoole/ide-helper": "^4.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "leocavalcante",
+            "email": "lc@leocavalcante.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

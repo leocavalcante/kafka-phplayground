@@ -51,3 +51,9 @@ Mainly https://github.com/easy-swoole/kafka
 Then just type some messages to the stdin. Press `Ctrl+C` to stop.
 
 ![Screenshot 01](assets/screenshot-01.png)
+
+### A PHP producer
+
+Just checkout [`producer.php`](producer.php).
+
+![Screenshot 02](assets/screenshot-02.png)

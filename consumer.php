@@ -6,6 +6,28 @@ use Swoole\Coroutine as Co;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+function consume(string $topic, int $partition, array $event): void
+{
+    $start = microtime(true);
+    newrelic_start_transaction('The Consumer');
+    newrelic_background_job();
+
+    $offset = $event['offset'];
+    $size = $event['size'];
+    $message = $event['message'];
+
+    $crc = $message['crc'];
+    $magic = $message['magic'];
+    $attr = $message['attr'];
+    $key = $message['key'];
+    $value = $message['value'];
+
+    echo $value, PHP_EOL;
+    newrelic_name_transaction($value);
+    newrelic_custom_metric('Spent', round($start * 1000));
+    newrelic_end_transaction();
+}
+
 Co\run(static function (): void {
     $consumer = new ConsumerConfig();
     $consumer->setMetadataBrokerList('127.0.0.1:9092');
@@ -13,23 +35,5 @@ Co\run(static function (): void {
     $consumer->setTopics(['my-topic']);
 
     $kafka = new Kafka($consumer);
-    $kafka->consumer()->subscribe(static function (string $topic, int $partition, array $event): void {
-        newrelic_start_transaction('Kafka Consumer');
-        newrelic_background_job(true);
-
-        $offset = $event['offset'];
-        $size = $event['size'];
-        $message = $event['message'];
-
-        $crc = $message['crc'];
-        $magic = $message['magic'];
-        $attr = $message['attr'];
-        $key = $message['key'];
-        $value = $message['value'];
-
-        echo $value, PHP_EOL;
-        newrelic_record_custom_event('Echo', ['value' => $value]);
-
-        newrelic_end_transaction();
-    });
+    $kafka->consumer()->subscribe('consume');
 });

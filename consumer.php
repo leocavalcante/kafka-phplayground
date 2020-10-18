@@ -14,6 +14,9 @@ Co\run(static function (): void {
 
     $kafka = new Kafka($consumer);
     $kafka->consumer()->subscribe(static function (string $topic, int $partition, array $event): void {
+        newrelic_start_transaction('Kafka Consumer');
+        newrelic_background_job(true);
+
         $offset = $event['offset'];
         $size = $event['size'];
         $message = $event['message'];
@@ -25,5 +28,8 @@ Co\run(static function (): void {
         $value = $message['value'];
 
         echo $value, PHP_EOL;
+        newrelic_record_custom_event('Echo', ['value' => $value]);
+
+        newrelic_end_transaction();
     });
 });

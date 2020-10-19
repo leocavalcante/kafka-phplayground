@@ -2,6 +2,10 @@
 
 🎸 Just some fun with [Kafka](https://kafka.apache.org/), [PHP](https://www.php.net/) and [Swoole](https://www.swoole.co.uk/).
 
+> Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+
+> Swoole is a Coroutine based Async PHP Programming Framework to Build high-performance, scalable, concurrent TCP, UDP, Unix Socket, HTTP, WebSocket services with PHP and fluent Coroutine API.
+
 ## Requirements
 
 - PHP >= 7.4 (https://launchpad.net/~ondrej/+archive/ubuntu/php)
